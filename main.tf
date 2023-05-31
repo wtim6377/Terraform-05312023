@@ -49,7 +49,12 @@ resource "aws_route" "public" {
   gateway_id             = aws_internet_gateway.main.id
 }
 
-resource "aws_route_table_association" "public" {
+resource "aws_route_table_association" "public1" {
   route_table_id = aws_route_table.public.id
-  subnet_id      = [aws_subnet.public1.id, aws_subnet.public2.id]
+  subnet_id      = aws_subnet.public1.id
+}
+
+resource "aws_route_table_association" "public2" {
+  route_table_id = aws_route_table.public.id
+  subnet_id      = aws_subnet.public2.id
 }
